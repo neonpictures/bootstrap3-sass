@@ -146,7 +146,7 @@ See also this [example manifest.js](/test/dummy_node_mincer/manifest.js) for min
 
 ### c. npm / Node.js
 ```console
-$ npm install bootstrap-sass
+$ npm install bootstrap3-sass
 ```
 
 
