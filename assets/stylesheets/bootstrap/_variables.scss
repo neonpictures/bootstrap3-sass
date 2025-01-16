@@ -507,19 +507,19 @@ $jumbotron-heading-font-size:    math.ceil(($font-size-base * 4.5)) !default;
 
 $state-success-text:             #3c763d !default;
 $state-success-bg:               #dff0d8 !default;
-$state-success-border:           color.adjust(adjust-hue($state-success-bg, -10), $lightness: -5%, $space: hsl) !default;
+$state-success-border:           color.adjust(color.adjust($state-success-bg, $hue: -10), $lightness: -5%, $space: hsl) !default;
 
 $state-info-text:                #31708f !default;
 $state-info-bg:                  #d9edf7 !default;
-$state-info-border:              color.adjust(adjust-hue($state-info-bg, -10), $lightness: -7%, $space: hsl) !default;
+$state-info-border:              color.adjust(color.adjust($state-info-bg, $hue: -10), $lightness: -7%, $space: hsl) !default;
 
 $state-warning-text:             #8a6d3b !default;
 $state-warning-bg:               #fcf8e3 !default;
-$state-warning-border:           color.adjust(adjust-hue($state-warning-bg, -10), $lightness: -5%, $space: hsl) !default;
+$state-warning-border:           color.adjust(color.adjust($state-warning-bg, $hue: -10), $lightness: -5%, $space: hsl) !default;
 
 $state-danger-text:              #a94442 !default;
 $state-danger-bg:                #f2dede !default;
-$state-danger-border:            color.adjust(adjust-hue($state-danger-bg, -10), $lightness: -5%, $space: hsl) !default;
+$state-danger-border:            color.adjust(color.adjust($state-danger-bg, $hue: -10), $lightness: -5%, $space: hsl) !default;
 
 
 //== Tooltips
