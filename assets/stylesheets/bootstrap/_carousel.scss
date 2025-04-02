@@ -1,3 +1,9 @@
+@use "mixins/gradients";
+@use "mixins/image";
+@use "mixins/opacity";
+@use "mixins/vendor-prefixes";
+@use "variables";
+
 @use "sass:math";
 
 //
@@ -18,35 +24,35 @@
   > .item {
     position: relative;
     display: none;
-    @include transition(.6s ease-in-out left);
+    @include vendor-prefixes.transition(.6s ease-in-out left);
 
     // Account for jankitude on images
     > img,
     > a > img {
-      @include img-responsive;
+      @include image.img-responsive;
       line-height: 1;
     }
 
     // WebKit CSS3 transforms for supported devices
     @media all and (transform-3d), (-webkit-transform-3d) {
-      @include transition-transform(0.6s ease-in-out);
-      @include backface-visibility(hidden);
-      @include perspective(1000px);
+      @include vendor-prefixes.transition-transform(0.6s ease-in-out);
+      @include vendor-prefixes.backface-visibility(hidden);
+      @include vendor-prefixes.perspective(1000px);
 
       &.next,
       &.active.right {
-        @include translate3d(100%, 0, 0);
+        @include vendor-prefixes.translate3d(100%, 0, 0);
         left: 0;
       }
       &.prev,
       &.active.left {
-        @include translate3d(-100%, 0, 0);
+        @include vendor-prefixes.translate3d(-100%, 0, 0);
         left: 0;
       }
       &.next.left,
       &.prev.right,
       &.active {
-        @include translate3d(0, 0, 0);
+        @include vendor-prefixes.translate3d(0, 0, 0);
         left: 0;
       }
     }
@@ -97,33 +103,33 @@
   top: 0;
   bottom: 0;
   left: 0;
-  width: $carousel-control-width;
-  font-size: $carousel-control-font-size;
-  color: $carousel-control-color;
+  width: variables.$carousel-control-width;
+  font-size: variables.$carousel-control-font-size;
+  color: variables.$carousel-control-color;
   text-align: center;
-  text-shadow: $carousel-text-shadow;
+  text-shadow: variables.$carousel-text-shadow;
   background-color: rgba(0, 0, 0, 0); // Fix IE9 click-thru bug
-  @include opacity($carousel-control-opacity);
+  @include opacity.opacity(variables.$carousel-control-opacity);
   // We can't have this transition here because WebKit cancels the carousel
   // animation if you trip this while in the middle of another animation.
 
   // Set gradients for backgrounds
   &.left {
-    @include gradient-horizontal($start-color: rgba(0, 0, 0, .5), $end-color: rgba(0, 0, 0, .0001));
+    @include gradients.gradient-horizontal($start-color: rgba(0, 0, 0, .5), $end-color: rgba(0, 0, 0, .0001));
   }
   &.right {
     right: 0;
     left: auto;
-    @include gradient-horizontal($start-color: rgba(0, 0, 0, .0001), $end-color: rgba(0, 0, 0, .5));
+    @include gradients.gradient-horizontal($start-color: rgba(0, 0, 0, .0001), $end-color: rgba(0, 0, 0, .5));
   }
 
   // Hover/focus state
   &:hover,
   &:focus {
-    color: $carousel-control-color;
+    color: variables.$carousel-control-color;
     text-decoration: none;
     outline: 0;
-    @include opacity(.9);
+    @include opacity.opacity(.9);
   }
 
   // Toggles
@@ -202,7 +208,7 @@
     background-color: #000 \9; // IE8
     background-color: rgba(0, 0, 0, 0); // IE9
 
-    border: 1px solid $carousel-indicator-border-color;
+    border: 1px solid variables.$carousel-indicator-border-color;
     border-radius: 10px;
   }
 
@@ -210,7 +216,7 @@
     width: 12px;
     height: 12px;
     margin: 0;
-    background-color: $carousel-indicator-active-bg;
+    background-color: variables.$carousel-indicator-active-bg;
   }
 }
 
@@ -225,9 +231,9 @@
   z-index: 10;
   padding-top: 20px;
   padding-bottom: 20px;
-  color: $carousel-caption-color;
+  color: variables.$carousel-caption-color;
   text-align: center;
-  text-shadow: $carousel-text-shadow;
+  text-shadow: variables.$carousel-text-shadow;
 
   & .btn {
     text-shadow: none; // No shadow for button elements in carousel-caption
@@ -236,7 +242,7 @@
 
 
 // Scale up controls for tablets and up
-@media screen and (min-width: $screen-sm-min) {
+@media screen and (min-width: variables.$screen-sm-min) {
 
   // Scale up the controls a smidge
   .carousel-control {
@@ -244,18 +250,18 @@
     .glyphicon-chevron-right,
     .icon-prev,
     .icon-next {
-      width: ($carousel-control-font-size * 1.5);
-      height: ($carousel-control-font-size * 1.5);
-      margin-top: math.div($carousel-control-font-size, -2);
-      font-size: ($carousel-control-font-size * 1.5);
+      width: (variables.$carousel-control-font-size * 1.5);
+      height: (variables.$carousel-control-font-size * 1.5);
+      margin-top: math.div(variables.$carousel-control-font-size, -2);
+      font-size: (variables.$carousel-control-font-size * 1.5);
     }
     .glyphicon-chevron-left,
     .icon-prev {
-      margin-left: math.div($carousel-control-font-size, -2);
+      margin-left: math.div(variables.$carousel-control-font-size, -2);
     }
     .glyphicon-chevron-right,
     .icon-next {
-      margin-right: math.div($carousel-control-font-size, -2);
+      margin-right: math.div(variables.$carousel-control-font-size, -2);
     }
   }
 
