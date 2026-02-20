@@ -13,12 +13,12 @@
   // Import the fonts
   @font-face {
     font-family: "Glyphicons Halflings";
-    src: url(if(variables.$bootstrap-sass-asset-helper, twbs-font-path("#{variables.$icon-font-path}#{variables.$icon-font-name}.eot"), "#{variables.$icon-font-path}#{variables.$icon-font-name}.eot"));
-    src: url(if(variables.$bootstrap-sass-asset-helper, twbs-font-path("#{variables.$icon-font-path}#{variables.$icon-font-name}.eot?#iefix"), "#{variables.$icon-font-path}#{variables.$icon-font-name}.eot?#iefix")) format("embedded-opentype"),
-         url(if(variables.$bootstrap-sass-asset-helper, twbs-font-path("#{variables.$icon-font-path}#{variables.$icon-font-name}.woff2"), "#{variables.$icon-font-path}#{variables.$icon-font-name}.woff2")) format("woff2"),
-         url(if(variables.$bootstrap-sass-asset-helper, twbs-font-path("#{variables.$icon-font-path}#{variables.$icon-font-name}.woff"), "#{variables.$icon-font-path}#{variables.$icon-font-name}.woff")) format("woff"),
-         url(if(variables.$bootstrap-sass-asset-helper, twbs-font-path("#{variables.$icon-font-path}#{variables.$icon-font-name}.ttf"), "#{variables.$icon-font-path}#{variables.$icon-font-name}.ttf")) format("truetype"),
-         url(if(variables.$bootstrap-sass-asset-helper, twbs-font-path("#{variables.$icon-font-path}#{variables.$icon-font-name}.svg##{variables.$icon-font-svg-id}"), "#{variables.$icon-font-path}#{variables.$icon-font-name}.svg##{variables.$icon-font-svg-id}")) format("svg");
+    src: url(if(sass(variables.$bootstrap-sass-asset-helper): twbs-font-path("#{variables.$icon-font-path}#{variables.$icon-font-name}.eot"); else: "#{variables.$icon-font-path}#{variables.$icon-font-name}.eot"));
+    src: url(if(sass(variables.$bootstrap-sass-asset-helper): twbs-font-path("#{variables.$icon-font-path}#{variables.$icon-font-name}.eot?#iefix"); else: "#{variables.$icon-font-path}#{variables.$icon-font-name}.eot?#iefix")) format("embedded-opentype"),
+         url(if(sass(variables.$bootstrap-sass-asset-helper): twbs-font-path("#{variables.$icon-font-path}#{variables.$icon-font-name}.woff2"); else: "#{variables.$icon-font-path}#{variables.$icon-font-name}.woff2")) format("woff2"),
+         url(if(sass(variables.$bootstrap-sass-asset-helper): twbs-font-path("#{variables.$icon-font-path}#{variables.$icon-font-name}.woff"); else: "#{variables.$icon-font-path}#{variables.$icon-font-name}.woff")) format("woff"),
+         url(if(sass(variables.$bootstrap-sass-asset-helper): twbs-font-path("#{variables.$icon-font-path}#{variables.$icon-font-name}.ttf"); else: "#{variables.$icon-font-path}#{variables.$icon-font-name}.ttf")) format("truetype"),
+         url(if(sass(variables.$bootstrap-sass-asset-helper): twbs-font-path("#{variables.$icon-font-path}#{variables.$icon-font-name}.svg##{variables.$icon-font-svg-id}"); else: "#{variables.$icon-font-path}#{variables.$icon-font-name}.svg##{variables.$icon-font-svg-id}")) format("svg");
   }
 }
 
